@@ -138,8 +138,10 @@ void actualizarRampa() {
 
   if (pwmActual < pwmObjetivo) {
     // Arrancar directamente desde el mínimo para no quedarse "zumbando" parado
-    pwmActual = max<int>(pwmActual + PASO_RAMPA, PWM_MINIMO);
-    if (pwmActual > pwmObjetivo) pwmActual = pwmObjetivo;
+    uint16_t siguiente = pwmActual + PASO_RAMPA;
+    if (siguiente < PWM_MINIMO) siguiente = PWM_MINIMO;
+    if (siguiente > pwmObjetivo) siguiente = pwmObjetivo;
+    pwmActual = siguiente;
   } else if (pwmActual > pwmObjetivo) {
     pwmActual = (pwmActual - pwmObjetivo > PASO_RAMPA) ? pwmActual - PASO_RAMPA : pwmObjetivo;
     if (pwmActual < PWM_MINIMO) pwmActual = pwmObjetivo;
@@ -155,7 +157,7 @@ void actualizarLeds() {
       digitalWrite(PIN_LED_ROJO, LOW);
       break;
     case PAUSADA:
-      digitalWrite(PIN_LED_VERDE, parpadeo);
+      digitalWrite(PIN_LED_VERDE, parpadeo ? HIGH : LOW);
       digitalWrite(PIN_LED_ROJO, LOW);
       break;
     case PARADA:
@@ -164,7 +166,7 @@ void actualizarLeds() {
       break;
     case EMERGENCIA:
       digitalWrite(PIN_LED_VERDE, LOW);
-      digitalWrite(PIN_LED_ROJO, parpadeo);
+      digitalWrite(PIN_LED_ROJO, parpadeo ? HIGH : LOW);
       break;
   }
 }
@@ -280,6 +282,10 @@ void setup() {
   pinMode(PIN_LED_ROJO,  OUTPUT);
   pinMode(PIN_ZUMBADOR,  OUTPUT);
   cortarMotor();
+
+#if defined(ARDUINO_ARCH_ESP32)
+  analogReadResolution(10);  // el ESP32 lee 12 bits por defecto; igualar a los 10 bits del Uno
+#endif
 
   Serial.begin(115200);
   bufferSerie.reserve(32);

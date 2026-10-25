@@ -68,3 +68,16 @@ Al principio del sketch:
   a que se retire la pieza).
 - Si tu sensor es activo en HIGH o usas un relé en lugar de un driver con PWM,
   hay que adaptar `flancoBajada()` / las funciones del motor.
+
+## Compatibilidad con otras placas
+
+| Placa | ¿Funciona tal cual? | Qué cambiar |
+|-------|---------------------|-------------|
+| Uno R3, Nano, Mega 2560, Leonardo, Micro, Pro Mini 5 V | Sí | Nada (mismos números de pin) |
+| Uno R4 Minima / WiFi, Nano Every | Sí | Nada |
+| Pro Mini 3,3 V | Sí, con cuidado | Alimentar sensor y potenciómetro a 3,3 V (VCC) |
+| Nano 33 IoT / BLE, Nano RP2040, Nano ESP32, Due, Zero, Giga | Programa sí; **conexionado no** | Son de **3,3 V y no toleran 5 V**: alimentar sensor IR y potenciómetro desde **3,3 V**, nunca desde 5 V |
+| Familia MKR | No tal cual | D9 no es PWM y D11/D12 son el bus I2C: reasignar pines |
+| ESP32 / ESP8266 genéricos | No tal cual | Numeración de pines GPIO distinta y 3,3 V: reasignar pines |
+
+El L298N acepta las señales de 3,3 V en IN1/IN2/ENA.
