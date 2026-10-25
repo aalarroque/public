@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="930" viewBox="0 0 1400 930" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <style>
+    .w   { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .gnd { stroke: #222; }
+    .v5  { stroke: #d1242f; }
+    .v12 { stroke: #8b0a1f; stroke-width: 4; }
+    .lbl { font-size: 15px; fill: #222; }
+    .sm  { font-size: 13px; fill: #444; }
+    .pin { font-size: 14px; fill: #fff; font-weight: 600; }
+    .ttl { font-size: 16px; font-weight: 700; fill: #222; }
+    .dot { fill: #222; }
+  </style>
+
+  <rect width="1400" height="930" fill="#ffffff"/>
+  <text x="700" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#222">Diagrama de conexiones — Cinta transportadora (Arduino UNO)</text>
+
+  <!-- ===================== ARDUINO ===================== -->
+  <rect x="520" y="140" width="300" height="620" rx="14" fill="#00878f" stroke="#005c61" stroke-width="3"/>
+  <rect x="560" y="120" width="70" height="40" rx="4" fill="#b8b8b8" stroke="#777"/>
+  <text x="595" y="146" text-anchor="middle" font-size="12" fill="#333">USB</text>
+  <text x="670" y="430" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">ARDUINO</text>
+  <text x="670" y="465" text-anchor="middle" font-size="22" fill="#fff">UNO / Nano</text>
+
+  <!-- pines izquierdos -->
+  <g fill="#e8e8e8" stroke="#555">
+    <rect x="512" y="192" width="16" height="16"/><rect x="512" y="272" width="16" height="16"/>
+    <rect x="512" y="352" width="16" height="16"/><rect x="512" y="452" width="16" height="16"/>
+    <rect x="512" y="592" width="16" height="16"/><rect x="512" y="682" width="16" height="16"/>
+    <rect x="512" y="712" width="16" height="16"/>
+  </g>
+  <text class="pin" x="536" y="205">D2</text>
+  <text class="pin" x="536" y="285">D3</text>
+  <text class="pin" x="536" y="365">D4</text>
+  <text class="pin" x="536" y="465">D5</text>
+  <text class="pin" x="536" y="605">A0</text>
+  <text class="pin" x="536" y="695">5V</text>
+  <text class="pin" x="536" y="725">GND</text>
+
+  <!-- pines derechos -->
+  <g fill="#e8e8e8" stroke="#555">
+    <rect x="812" y="192" width="16" height="16"/><rect x="812" y="232" width="16" height="16"/>
+    <rect x="812" y="272" width="16" height="16"/><rect x="812" y="412" width="16" height="16"/>
+    <rect x="812" y="492" width="16" height="16"/><rect x="812" y="572" width="16" height="16"/>
+    <rect x="812" y="712" width="16" height="16"/>
+  </g>
+  <text class="pin" x="804" y="205" text-anchor="end">D7</text>
+  <text class="pin" x="804" y="245" text-anchor="end">D8</text>
+  <text class="pin" x="804" y="285" text-anchor="end">D9 (PWM)</text>
+  <text class="pin" x="804" y="425" text-anchor="end">D10</text>
+  <text class="pin" x="804" y="505" text-anchor="end">D11</text>
+  <text class="pin" x="804" y="585" text-anchor="end">D12</text>
+  <text class="pin" x="804" y="725" text-anchor="end">GND</text>
+
+  <!-- ===================== RAÍLES IZQUIERDOS ===================== -->
+  <path class="w gnd" d="M70 200 V720 H512"/>
+  <path class="w v5"  d="M100 480 V690 H512"/>
+  <text class="lbl" x="70" y="185" text-anchor="middle" font-weight="700">GND</text>
+  <text class="lbl" x="100" y="410" text-anchor="middle" font-weight="700" fill="#d1242f">5V</text>
+  <path class="w v5" d="M100 420 V480" stroke-dasharray="0"/>
+
+  <!-- START (NA) -> D2 -->
+  <path class="w gnd" d="M70 200 H226"/>
+  <path class="w" stroke="#1f6feb" d="M294 200 H512"/>
+  <circle cx="230" cy="200" r="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  <circle cx="290" cy="200" r="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  <path d="M222 184 H298 M260 184 V168 M248 168 H272" stroke="#222" stroke-width="3" fill="none"/>
+  <text class="ttl" x="260" y="158" text-anchor="middle">START (NA)</text>
+
+  <!-- STOP (NA) -> D3 -->
+  <path class="w gnd" d="M70 280 H226"/>
+  <path class="w" stroke="#d9730d" d="M294 280 H512"/>
+  <circle cx="230" cy="280" r="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  <circle cx="290" cy="280" r="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  <path d="M222 264 H298 M260 264 V248 M248 248 H272" stroke="#222" stroke-width="3" fill="none"/>
+  <text class="ttl" x="260" y="238" text-anchor="middle">STOP (NA)</text>
+
+  <!-- SETA EMERGENCIA (NC) -> D4 -->
+  <path class="w gnd" d="M70 360 H226"/>
+  <path class="w" stroke="#8250df" d="M294 360 H512"/>
+  <circle cx="230" cy="360" r="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  <circle cx="290" cy="360" r="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  <path d="M222 366 H298 M260 366 V336" stroke="#222" stroke-width="3" fill="none"/>
+  <path d="M242 336 A18 14 0 0 1 278 336 Z" fill="#d1242f" stroke="#8b0a1f" stroke-width="2"/>
+  <text class="ttl" x="260" y="316" text-anchor="middle" fill="#b0101f">SETA EMERGENCIA (NC)</text>
+
+  <!-- SENSOR IR -> D5 -->
+  <rect x="190" y="415" width="150" height="90" rx="6" fill="#1b3a6b" stroke="#0d2142" stroke-width="2"/>
+  <text x="285" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Sensor IR</text>
+  <text x="265" y="470" text-anchor="middle" font-size="12" fill="#cfe0ff">(FC-51 / fotoeléctrico)</text>
+  <text x="198" y="444" font-size="11" fill="#fff">GND</text>
+  <text x="198" y="490" font-size="11" fill="#fff">VCC</text>
+  <text x="333" y="490" font-size="11" fill="#fff" text-anchor="end">OUT</text>
+  <path class="w gnd" d="M70 440 H190"/>
+  <path class="w v5"  d="M100 480 H190"/>
+  <path class="w" stroke="#1a7f37" d="M340 460 H512"/>
+
+  <!-- POTENCIÓMETRO -> A0 -->
+  <path class="w v5"  d="M100 560 H250 V570"/>
+  <path class="w gnd" d="M250 630 V640 H106 A6 6 0 0 0 94 640 H70"/>
+  <rect x="240" y="570" width="20" height="60" fill="#fff" stroke="#222" stroke-width="3"/>
+  <path class="w" stroke="#0e7c86" d="M512 600 H275"/>
+  <path d="M264 600 L278 592 L278 608 Z" fill="#0e7c86"/>
+  <text class="ttl" x="250" y="668" text-anchor="middle">Potenciómetro 10 kΩ</text>
+  <text class="sm"  x="250" y="684" text-anchor="middle">(velocidad)</text>
+
+  <!-- uniones izquierda -->
+  <g class="dot">
+    <circle cx="70" cy="280" r="5"/><circle cx="70" cy="360" r="5"/><circle cx="70" cy="440" r="5"/>
+    <circle cx="100" cy="560" r="5"/><circle cx="70" cy="640" r="5"/>
+  </g>
+  <circle cx="100" cy="480" r="5" fill="#d1242f"/>
+  <circle cx="100" cy="560" r="5" fill="#d1242f"/>
+
+  <!-- ===================== DRIVER L298N ===================== -->
+  <rect x="950" y="160" width="200" height="200" rx="8" fill="#c0262d" stroke="#7a1218" stroke-width="3"/>
+  <text x="1050" y="262" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">L298N</text>
+  <text x="1050" y="282" text-anchor="middle" font-size="12" fill="#ffd9db">driver motor</text>
+  <text x="958" y="205" font-size="13" fill="#fff" font-weight="600">IN1</text>
+  <text x="958" y="245" font-size="13" fill="#fff" font-weight="600">IN2</text>
+  <text x="958" y="285" font-size="13" fill="#fff" font-weight="600">ENA</text>
+  <text x="1142" y="200" font-size="13" fill="#fff" font-weight="600" text-anchor="end">OUT1</text>
+  <text x="1142" y="230" font-size="13" fill="#fff" font-weight="600" text-anchor="end">OUT2</text>
+  <text x="1142" y="295" font-size="13" fill="#fff" font-weight="600" text-anchor="end">+12V</text>
+  <text x="1142" y="335" font-size="13" fill="#fff" font-weight="600" text-anchor="end">GND</text>
+
+  <path class="w" stroke="#1f6feb" d="M828 200 H950"/>
+  <path class="w" stroke="#d9730d" d="M828 240 H950"/>
+  <path class="w" stroke="#bf3989" d="M828 280 H950"/>
+  <text x="1050" y="322" text-anchor="middle" font-size="11" fill="#ffd9db">(quitar jumper ENA)</text>
+
+  <!-- MOTOR -->
+  <path class="w" stroke="#555" d="M1150 195 H1292"/>
+  <path class="w" stroke="#555" d="M1150 225 H1292"/>
+  <circle cx="1320" cy="210" r="32" fill="#f3f3f3" stroke="#222" stroke-width="3"/>
+  <text x="1320" y="220" text-anchor="middle" font-size="26" font-weight="700" fill="#222">M</text>
+  <text class="ttl" x="1320" y="160" text-anchor="middle">Motor DC</text>
+  <text class="sm" x="1320" y="262" text-anchor="middle">(cinta)</text>
+
+  <!-- FUENTE 12 V -->
+  <rect x="1250" y="420" width="130" height="90" rx="6" fill="#333" stroke="#111" stroke-width="2"/>
+  <text x="1320" y="458" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Fuente</text>
+  <text x="1320" y="480" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">12 V</text>
+  <text x="1260" y="445" font-size="15" fill="#ff8a8a" font-weight="700">+</text>
+  <text x="1260" y="486" font-size="15" fill="#fff" font-weight="700">−</text>
+  <path class="w v12" d="M1150 290 H1240 V440 H1250"/>
+  <path class="w gnd" d="M1150 330 H1210 V800"/>
+  <path class="w gnd" d="M1250 480 H1210"/>
+
+  <!-- LED VERDE -> D10 -->
+  <path class="w" stroke="#1a7f37" d="M828 420 H900"/>
+  <rect x="900" y="412" width="60" height="16" fill="#e9d9b8" stroke="#222" stroke-width="2"/>
+  <path class="w" stroke="#1a7f37" d="M960 420 H1040"/>
+  <path d="M1040 404 L1070 420 L1040 436 Z" fill="#2ea043" stroke="#222" stroke-width="2"/>
+  <path d="M1070 404 V436" stroke="#222" stroke-width="3"/>
+  <path class="w gnd" d="M1070 420 H1180"/>
+  <text class="sm" x="930" y="402" text-anchor="middle">220 Ω</text>
+  <text class="ttl" x="1055" y="394" text-anchor="middle">LED verde</text>
+
+  <!-- LED ROJO -> D11 -->
+  <path class="w" stroke="#d1242f" d="M828 500 H900"/>
+  <rect x="900" y="492" width="60" height="16" fill="#e9d9b8" stroke="#222" stroke-width="2"/>
+  <path class="w" stroke="#d1242f" d="M960 500 H1040"/>
+  <path d="M1040 484 L1070 500 L1040 516 Z" fill="#e5534b" stroke="#222" stroke-width="2"/>
+  <path d="M1070 484 V516" stroke="#222" stroke-width="3"/>
+  <path class="w gnd" d="M1070 500 H1180"/>
+  <text class="sm" x="930" y="482" text-anchor="middle">220 Ω</text>
+  <text class="ttl" x="1055" y="474" text-anchor="middle">LED rojo</text>
+
+  <!-- ZUMBADOR -> D12 -->
+  <path class="w" stroke="#8b5a2b" d="M828 580 H1030"/>
+  <circle cx="1055" cy="580" r="25" fill="#222" stroke="#000" stroke-width="2"/>
+  <circle cx="1055" cy="580" r="6" fill="#555"/>
+  <text x="1036" y="584" font-size="11" fill="#fff" font-weight="700">+</text>
+  <path class="w gnd" d="M1080 580 H1180"/>
+  <text class="ttl" x="1055" y="540" text-anchor="middle">Zumbador activo</text>
+
+  <!-- BUS GND DERECHO -->
+  <path class="w gnd" d="M1180 420 V800"/>
+  <path class="w gnd" d="M828 720 H860 V800 H1210"/>
+  <g class="dot">
+    <circle cx="1180" cy="500" r="5"/><circle cx="1180" cy="580" r="5"/>
+    <circle cx="1180" cy="800" r="5"/><circle cx="1210" cy="480" r="5"/>
+  </g>
+  <text class="lbl" x="1020" y="822" text-anchor="middle" font-weight="700">GND común (Arduino + driver + fuente 12 V)</text>
+
+  <!-- ===================== LEYENDA ===================== -->
+  <rect x="40" y="845" width="1320" height="70" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+  <g font-size="14" fill="#222">
+    <path d="M60 868 H95" stroke="#d1242f" stroke-width="4"/><text x="103" y="873">5 V</text>
+    <path d="M160 868 H195" stroke="#222" stroke-width="4"/><text x="203" y="873">GND</text>
+    <path d="M270 868 H305" stroke="#8b0a1f" stroke-width="5"/><text x="313" y="873">12 V motor</text>
+    <path d="M420 868 H455" stroke="#555" stroke-width="4"/><text x="463" y="873">Salida a motor</text>
+    <path d="M590 868 H625" stroke="#1f6feb" stroke-width="4"/><text x="633" y="873">Señales (cada color = un pin)</text>
+    <text x="60" y="900" fill="#b0101f" font-weight="600">⚠ En una instalación real la seta de emergencia debe cortar también la alimentación del motor por hardware (contactor / relé de seguridad).</text>
+  </g>
+</svg>

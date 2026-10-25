@@ -4,6 +4,10 @@ Sketch: [`cinta_transportadora.ino`](cinta_transportadora.ino) (Arduino Uno / Na
 
 ## Conexionado
 
+![Diagrama de conexiones](diagrama_conexiones.png)
+
+(Versión vectorial: [`diagrama_conexiones.svg`](diagrama_conexiones.svg))
+
 | Elemento                       | Pin Arduino | Notas |
 |--------------------------------|-------------|-------|
 | Pulsador START (NA)            | D2          | Entre el pin y GND (usa pull-up interno) |
