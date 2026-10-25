@@ -13,14 +13,14 @@ Sketch: [`cinta_transportadora.ino`](cinta_transportadora.ino) (Arduino Uno / Na
 | Pulsador START (NA)            | D2          | Entre el pin y GND (usa pull-up interno) |
 | Pulsador STOP (NA)             | D3          | Entre el pin y GND |
 | Seta de emergencia (NC)        | D4          | Contacto NC entre el pin y GND. Si se pulsa **o se corta el cable**, para |
-| Sensor de presencia (IR)       | D5          | Salida activa en LOW (p. ej. módulo FC-51 o fotoeléctrico NPN) |
+| Sensor de presencia (IR)       | D5          | Salida activa en LOW (p. ej. FC-51). VCC a 5V o 3V3 según la placa |
 | Driver motor IN1               | D7          | |
 | Driver motor IN2               | D8          | |
 | Driver motor ENA (PWM)         | D9          | Quitar el jumper ENA del L298N |
 | LED verde (marcha)             | D10         | Con resistencia de 220 Ω |
 | LED rojo (parada/fallo)        | D11         | Con resistencia de 220 Ω |
 | Zumbador                       | D12         | Zumbador activo |
-| Potenciómetro (velocidad)      | A0          | Extremos a 5V y GND, cursor a A0 |
+| Potenciómetro (velocidad)      | A0          | Extremos a VCC lógica (5V o 3V3, ver compatibilidad) y GND, cursor a A0 |
 
 **Alimentación:** el motor se alimenta desde la fuente del driver (12 V/24 V), nunca
 desde el Arduino. Une siempre el GND de la fuente del motor con el GND del Arduino.

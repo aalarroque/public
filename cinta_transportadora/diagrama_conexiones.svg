@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="930" viewBox="0 0 1400 930" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1120" viewBox="0 0 1400 1120" font-family="Segoe UI, Helvetica, Arial, sans-serif">
   <style>
     .w   { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
     .gnd { stroke: #222; }
@@ -11,15 +11,15 @@
     .dot { fill: #222; }
   </style>
 
-  <rect width="1400" height="930" fill="#ffffff"/>
-  <text x="700" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#222">Diagrama de conexiones — Cinta transportadora (Arduino UNO)</text>
+  <rect width="1400" height="1120" fill="#ffffff"/>
+  <text x="700" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#222">Diagrama de conexiones — Cinta transportadora (Arduino)</text>
 
   <!-- ===================== ARDUINO ===================== -->
   <rect x="520" y="140" width="300" height="620" rx="14" fill="#00878f" stroke="#005c61" stroke-width="3"/>
   <rect x="560" y="120" width="70" height="40" rx="4" fill="#b8b8b8" stroke="#777"/>
   <text x="595" y="146" text-anchor="middle" font-size="12" fill="#333">USB</text>
   <text x="670" y="430" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">ARDUINO</text>
-  <text x="670" y="465" text-anchor="middle" font-size="22" fill="#fff">UNO / Nano</text>
+  <text x="670" y="530" text-anchor="middle" font-size="16" fill="#fff">Uno · Nano · Mega · R4 …</text>
 
   <!-- pines izquierdos -->
   <g fill="#e8e8e8" stroke="#555">
@@ -33,7 +33,7 @@
   <text class="pin" x="536" y="365">D4</text>
   <text class="pin" x="536" y="465">D5</text>
   <text class="pin" x="536" y="605">A0</text>
-  <text class="pin" x="536" y="695">5V</text>
+  <text class="pin" x="536" y="695">5V / 3V3 *</text>
   <text class="pin" x="536" y="725">GND</text>
 
   <!-- pines derechos -->
@@ -55,7 +55,7 @@
   <path class="w gnd" d="M70 200 V720 H512"/>
   <path class="w v5"  d="M100 480 V690 H512"/>
   <text class="lbl" x="70" y="185" text-anchor="middle" font-weight="700">GND</text>
-  <text class="lbl" x="100" y="410" text-anchor="middle" font-weight="700" fill="#d1242f">5V</text>
+  <text class="lbl" x="108" y="390" text-anchor="start" font-weight="700" fill="#d1242f">VCC lógica *</text><text x="108" y="407" text-anchor="start" font-size="12" fill="#d1242f">(5 V o 3,3 V)</text>
   <path class="w v5" d="M100 420 V480" stroke-dasharray="0"/>
 
   <!-- START (NA) -> D2 -->
@@ -186,11 +186,34 @@
   <!-- ===================== LEYENDA ===================== -->
   <rect x="40" y="845" width="1320" height="70" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
   <g font-size="14" fill="#222">
-    <path d="M60 868 H95" stroke="#d1242f" stroke-width="4"/><text x="103" y="873">5 V</text>
-    <path d="M160 868 H195" stroke="#222" stroke-width="4"/><text x="203" y="873">GND</text>
-    <path d="M270 868 H305" stroke="#8b0a1f" stroke-width="5"/><text x="313" y="873">12 V motor</text>
-    <path d="M420 868 H455" stroke="#555" stroke-width="4"/><text x="463" y="873">Salida a motor</text>
-    <path d="M590 868 H625" stroke="#1f6feb" stroke-width="4"/><text x="633" y="873">Señales (cada color = un pin)</text>
+    <path d="M60 868 H95" stroke="#d1242f" stroke-width="4"/><text x="103" y="873">VCC lógica (5 V o 3,3 V)</text>
+    <path d="M300 868 H335" stroke="#222" stroke-width="4"/><text x="343" y="873">GND</text>
+    <path d="M410 868 H445" stroke="#8b0a1f" stroke-width="5"/><text x="453" y="873">12 V motor</text>
+    <path d="M560 868 H595" stroke="#555" stroke-width="4"/><text x="603" y="873">Salida a motor</text>
+    <path d="M730 868 H765" stroke="#1f6feb" stroke-width="4"/><text x="773" y="873">Señales (cada color = un pin)</text>
     <text x="60" y="900" fill="#b0101f" font-weight="600">⚠ En una instalación real la seta de emergencia debe cortar también la alimentación del motor por hardware (contactor / relé de seguridad).</text>
   </g>
+
+  <!-- ===================== COMPATIBILIDAD ===================== -->
+  <text x="40" y="958" font-size="18" font-weight="700" fill="#222">* ¿A qué pin va la VCC lógica (raíl rojo)? Depende de la placa:</text>
+  <g font-size="14" fill="#222">
+    <rect x="40" y="972" width="420" height="112" rx="8" fill="#e9f7ee" stroke="#1a7f37" stroke-width="2"/>
+    <text x="56" y="998" font-size="16" font-weight="700" fill="#1a7f37">Placas de 5 V  →  pin 5V</text>
+    <text x="56" y="1022">Uno R3 / R4, Nano, Nano Every, Mega 2560,</text>
+    <text x="56" y="1042">Leonardo, Micro, Pro Mini 5 V.</text>
+    <text x="56" y="1066" fill="#1a7f37" font-weight="600">Conexionado y programa tal cual.</text>
+
+    <rect x="480" y="972" width="460" height="112" rx="8" fill="#fff4e5" stroke="#d9730d" stroke-width="2"/>
+    <text x="496" y="998" font-size="16" font-weight="700" fill="#b35900">Placas de 3,3 V  →  pin 3V3</text>
+    <text x="496" y="1022">Nano 33 IoT / BLE, Nano RP2040, Nano ESP32,</text>
+    <text x="496" y="1042">Due, Zero, Giga, Pro Mini 3,3 V.</text>
+    <text x="496" y="1066" fill="#b0101f" font-weight="600">⚠ No toleran 5 V: sensor y potenciómetro NUNCA a 5V.</text>
+
+    <rect x="960" y="972" width="400" height="112" rx="8" fill="#fdecec" stroke="#b0101f" stroke-width="2"/>
+    <text x="976" y="998" font-size="16" font-weight="700" fill="#b0101f">Otra numeración de pines</text>
+    <text x="976" y="1022">Familia MKR, ESP32 / ESP8266 genéricos.</text>
+    <text x="976" y="1042">Hay que reasignar pines en el programa</text>
+    <text x="976" y="1062">y en este diagrama.</text>
+  </g>
+  <text x="40" y="1106" font-size="13" fill="#444">Los pines D2–D12 y A0 son los mismos en todas las placas de las dos primeras columnas. El L298N acepta señales de 3,3 V y 5 V; el sensor FC-51 funciona a 3,3 V y a 5 V.</text>
 </svg>
